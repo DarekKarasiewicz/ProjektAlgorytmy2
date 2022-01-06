@@ -1,4 +1,4 @@
-
+import ast
 
 file = open("test.txt", "r")
 
@@ -190,3 +190,30 @@ my_code=my_code+"\n"+ str(tmp2)
 
 with open('test_nowy.txt', 'w') as f:
     f.write(my_code)
+
+file= open('test_nowy.txt', 'r')
+
+print("----------------")
+list_file=[]
+for x in file:
+    list_file.append(x)
+
+dict_from_file=list_file.pop()
+dict_file=ast.literal_eval(dict_from_file)
+print(type(dict_file))
+keys_dict=list(dict_file.keys())
+values_dict=list(dict_file.values())
+
+sum_string=""
+result=""
+code=list_file.pop().strip()
+
+for x in code:
+    sum_string+=x
+    for i in values_dict:
+        if (sum_string == i):
+            key=get_key1(i,dict_file)
+            result+=key
+            sum_string=""
+
+print(result)
