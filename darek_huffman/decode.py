@@ -184,9 +184,12 @@ for x in file:
 
 my_code=my_code+"\n"+ str(tmp2)
 
+print(my_code)
+
 with open('test_nowy.txt', 'w') as f:
     f.write(my_code)
 
+#Odszyfrowywanie
 file= open('test_nowy.txt', 'r')
 
 print("----------------")
