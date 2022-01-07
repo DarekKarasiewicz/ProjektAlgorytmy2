@@ -102,7 +102,7 @@ def heapsort(arr):
         min_heapify(arr, 0, lenght - 1)
 
 
-def get_key(val):
+def get_key(val,tmp):
     for key, value in tmp.items():
          if val == value:
              return key
@@ -117,11 +117,11 @@ print("-------------")
 tmp1 = {}
 while (len(values) >= 2):
     i = values.pop(0)
-    a=get_key(i)
+    a=get_key(i,tmp)
     tmp.pop(a)
     heapsort(values)
     j = values.pop(0)
-    b=get_key(j)
+    b=get_key(j,tmp)
     tmp.pop(b)
     c= str(a) + str(b)
     z = j + i
@@ -138,10 +138,6 @@ print("_________________________")
 
 
 
-def get_key1(val,tmp):
-    for key, value in tmp.items():
-         if val == value:
-             return key
 
 
 
@@ -212,7 +208,7 @@ for x in code:
     sum_string+=x
     for i in values_dict:
         if (sum_string == i):
-            key=get_key1(i,dict_file)
+            key=get_key(i,dict_file)
             result+=key
             sum_string=""
 
