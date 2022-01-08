@@ -216,3 +216,29 @@ for x in code:
             sum_string=""
 
 print(result)
+
+
+def decode(ciphertext,code):
+    
+
+    print("----------------")
+
+    dict_from_file=code
+    print(type(dict_from_file))
+    keys_dict=list(dict_from_file.keys())
+    values_dict=list(dict_from_file.values())
+
+    sum_string=""
+    result=""
+    code=ciphertext
+    
+    for x in code:
+        sum_string+=x
+        for i in values_dict:
+            if (sum_string == i):
+                key=get_key(i,dict_from_file)
+                result+=key
+                sum_string=""
+
+    print(result)
+    return result
