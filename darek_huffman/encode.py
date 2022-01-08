@@ -216,3 +216,77 @@ for x in code:
             sum_string=""
 
 print(result)
+
+
+def encode(clear_text):
+    dist = {}    
+    huffman_code={}
+    for x in clear_text:
+        dist[x] = dist.get(x,0)+1
+        huffman_code[x] = huffman_code.get(x,0)+1
+
+    print("linia1")
+    print(huffman_code)
+    print(dist)
+    
+    keys=list(dist.keys())
+    values=list(dist.values())
+    print(values)
+    heapsort(values)
+    print(values)
+    print("-------------")
+    sub_dist = {}
+    while (len(values) >= 2):
+        i = values.pop(0)
+        a=get_key(i,dist)
+        dist.pop(a)
+        heapsort(values)
+        j = values.pop(0)
+        b=get_key(j,dist)
+        dist.pop(b)
+        c= str(a) + str(b)
+        z = j + i
+        dist[c]=z
+        sub_dist[a]=i
+        sub_dist[b]=j
+        sub_dist[c]=z
+        values.append(z)
+        heapsort(values)
+        print(values)
+    print(dist)
+    print(sub_dist)
+    print("_________________________")
+    
+    i=0
+    keys_tmp1=list(sub_dist.keys())
+    print(huffman_code)
+    keys_tmp2=list(huffman_code.keys())
+    l=str(1)
+    print(keys_tmp1)
+    print(keys_tmp2)
+    while len(keys_tmp1) > 0:
+        a=keys_tmp1.pop()
+        for x in keys_tmp2:
+            if a == x:
+                huffman_code[x]=l
+        if i % 2 == 0:
+             l=l+str(0)
+        else:
+            l=l[:-1]+str(1)
+        i+=1
+    print(huffman_code)
+    
+
+    values_tmp2=list(huffman_code.values())
+    my_code=""
+    for x in clear_text:
+        for i in x:
+            for n in huffman_code:
+                if n==i:
+                    my_code=my_code+huffman_code[n]
+
+    #my_code=my_code+"\n"+ str(huffman_code)
+
+    print(my_code)
+    return my_code,huffman_code
+
