@@ -10,7 +10,12 @@ class jakiśtest(unittest.TestCase):
         self.assertEqual(ciphertext,ct) 
         self.assertEqual(code,cd)
         
-    #def test_decode(self):
-     #   self.assertEqual(1,0)
+    def test_decode(self): 
+        cleartext = "daa"
+        ciphertext = "111010"
+        code = { "d" : "11" , "a" : "10" }
+        cl = darek_huffman.decode.decode(ciphertext,code)
+        self.assertEqual(cleartext,cl) 
+
 
 unittest.main()
