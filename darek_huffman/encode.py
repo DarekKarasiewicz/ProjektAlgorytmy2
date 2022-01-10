@@ -152,8 +152,8 @@ tree.right.left=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right.left=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
-tree.right.right.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right.right.left=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
+tree.right.right.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 
 print(tree.display())
 i=0
