@@ -1,6 +1,6 @@
 import ast
 
-file = open("test.txt", "r")
+file = open("C:\\Users\\darek\\PycharmProjects\\ProjektAlgorytmy2\\test.txt", "r")
 
 tmp = {}
 tmp2 = {}
@@ -76,10 +76,10 @@ def min_heapify(arr, i, lenght):
     largest = i
     left = i * 2 + 1
     right = i * 2 + 2
-    if left <= lenght and arr[largest] < arr[left]:
+    if left <= lenght and arr[largest] > arr[left]:
         largest = left
 
-    if right <= lenght and arr[largest] < arr[right]:
+    if right <= lenght and arr[largest] > arr[right]:
         largest = right
 
     if largest != i:
@@ -111,7 +111,7 @@ def get_key(val,tmp):
 keys=list(tmp.keys())
 values=list(tmp.values())
 print(values)
-heapsort(values)
+build_min_hep(values)
 print(values)
 print("-------------")
 tmp1 = {}
@@ -119,7 +119,7 @@ while (len(values) >= 2):
     i = values.pop(0)
     a=get_key(i,tmp)
     tmp.pop(a)
-    heapsort(values)
+    build_min_hep(values)
     j = values.pop(0)
     b=get_key(j,tmp)
     tmp.pop(b)
@@ -130,7 +130,7 @@ while (len(values) >= 2):
     tmp1[b]=j
     tmp1[c]=z
     values.append(z)
-    heapsort(values)
+    build_min_hep(values)
     print(values)
 print(tmp)
 print(tmp1)
@@ -152,8 +152,8 @@ tree.right.left=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right.left=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
-tree.right.right.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 tree.right.right.right.left=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
+tree.right.right.right.right=Node(keys_tmp1.pop()+":"+str(values_tmp1.pop()))
 
 print(tree.display())
 i=0
@@ -175,7 +175,7 @@ while len(keys_tmp1) > 0:
 print(tmp2)
 values_tmp2=list(tmp2.values())
 my_code=""
-file = open("test.txt", "r")
+file = open("C:\\Users\\darek\\PycharmProjects\\ProjektAlgorytmy2\\test.txt", "r")
 for x in file:
     for i in x:
         for n in tmp2:
@@ -186,11 +186,11 @@ my_code=my_code+"\n"+ str(tmp2)
 
 print(my_code)
 
-with open('test_nowy.txt', 'w') as f:
+with open('C:\\Users\\darek\\PycharmProjects\\ProjektAlgorytmy2\\test_nowy.txt', 'w') as f:
     f.write(my_code)
 
 #Odszyfrowywanie
-file= open('test_nowy.txt', 'r')
+file= open('C:\\Users\\darek\\PycharmProjects\\ProjektAlgorytmy2\\test_nowy.txt', 'r')
 
 print("----------------")
 list_file=[]
